@@ -1,16 +1,13 @@
 import React from 'react';
-import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
 import Marketplace from './pages/Marketplace';
+import Wishlist from './pages/Wishlist';
 import NotFound from './pages/NotFound';
-
-
-
-
 
 function App() {
   return (
@@ -23,6 +20,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/marketplace" element={<Marketplace />} />
+          <Route path="/wishlist" element={<Wishlist />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

@@ -1,0 +1,6 @@
+[
+    { "id": 1, "name": "8-bit Hero Sprite",        "type": "sprite",     "price": "Free" },
+    { "id": 2, "name": "Forest Background",        "type": "background", "price": "$3"   },
+    { "id": 3, "name": "Explosion Sound FX",       "type": "audio",      "price": "$2"   },
+    { "id": 4, "name": "Pixel Dungeon Tileset",    "type": "tileset",    "price": "$5"   }
+  ]  
