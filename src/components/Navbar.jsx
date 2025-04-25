@@ -10,6 +10,7 @@ export default function Navbar()
                 <Link to="/">Home</Link>
                 <Link to="/marketplace">Marketplace</Link>
                 <Link to="/profile">Profile</Link>
+                <Link to="/wishlist">Wishlist</Link>
 
             </div>
             <div classname = "space-x-4">
