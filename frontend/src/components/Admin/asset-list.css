@@ -1,0 +1,30 @@
+.asset-list {
+    padding: 20px;
+  }
+  
+  .asset-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .asset-list th, .asset-list td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+  
+  .asset-list button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    background-color: #2c2f33;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .asset-list button:hover {
+    background-color: #1a1d20;
+  }
+  

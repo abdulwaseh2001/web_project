@@ -1,0 +1,15 @@
+.settings-form {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .settings-form input {
+    width: 100%;
+    padding: 8px;
+  }
+  .settings-form button {
+    padding: 8px 16px;
+    align-self: flex-start;
+  }
+  
