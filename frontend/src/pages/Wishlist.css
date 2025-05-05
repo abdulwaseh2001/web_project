@@ -1,0 +1,11 @@
+.wishlist-container {
+    padding: 24px;
+  }
+  
+  .wishlist-item {
+    padding: 12px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 6px;
+  }
+  

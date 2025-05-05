@@ -1,6 +1,5 @@
-
-import React, { useEffect, useState } from 'react'; // ✅ Correct
-
+import React, { useEffect, useState } from 'react';
+import './DarkModeToggle.css'; // ✅ Local CSS
 
 export default function DarkModeToggle() {
   const [dark, setDark] = useState(() => {
@@ -13,17 +12,17 @@ export default function DarkModeToggle() {
   useEffect(() => {
     if (typeof document !== 'undefined') {
       if (dark) {
-        document.documentElement.classList.add('dark');
+        document.documentElement.classList.add('dark-theme');
         localStorage.setItem('theme', 'dark');
       } else {
-        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.remove('dark-theme');
         localStorage.setItem('theme', 'light');
       }
     }
   }, [dark]);
 
   return (
-    <button onClick={() => setDark(!dark)} className="text-sm">
+    <button onClick={() => setDark(!dark)} className="dark-toggle-button">
       {dark ? '☀️ Light' : '🌙 Dark'}
     </button>
   );
