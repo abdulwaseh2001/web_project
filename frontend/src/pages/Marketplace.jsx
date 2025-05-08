@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import assets from '../data/dummyAssets.json';
+import './Marketplace.css';
 
 export default function Marketplace() {
   const [items, setItems] = useState([]);
@@ -27,19 +28,17 @@ export default function Marketplace() {
   };
 
   return (
-    <div className="p-6">
-      <h2 className="text-xl mb-4">Asset Marketplace</h2>
+    <div className="marketplace-container">
+      <h2>Asset Marketplace</h2>
 
-      <div className="mb-4 flex flex-wrap gap-2">
+      <div className="marketplace-filters">
         <input
           type="text"
           placeholder="Search assets..."
-          className="p-2 border rounded"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
         <select
-          className="p-2 border rounded"
           value={typeFilter}
           onChange={(e) => setTypeFilter(e.target.value)}
         >
@@ -51,16 +50,11 @@ export default function Marketplace() {
 
       <ul>
         {filteredItems.map(item => (
-          <li key={item.id} className="mb-2 p-2 border rounded flex justify-between items-center">
+          <li key={item.id} className="asset-card">
             <span>
               <strong>{item.name}</strong> — {item.type} — {item.price}
             </span>
-            <button
-              className="text-red-500"
-              onClick={() => handleAddToWishlist(item)}
-            >
-              ❤️
-            </button>
+            <button onClick={() => handleAddToWishlist(item)}>❤️</button>
           </li>
         ))}
       </ul>

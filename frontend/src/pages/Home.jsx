@@ -1,4 +1,5 @@
-export default function Home() {
-return <div classname = "p-6 text-2xl">welcome to indie coaltion</div>
+import './Home.css';
 
+export default function Home() {
+  return <div className="home-container">Welcome to Indie Coalition</div>;
 }
