@@ -1,14 +1,19 @@
-// backend/routes/admin.js
-import express from 'express';
-import { listUsers, updateUserRole, toggleBlockUser } from '../controllers/adminController.js';
-import { authorizeRoles } from '../middleware/roleMiddleware.js';
-import authMiddleware from '../middleware/authMiddleware.js';
-
+const express = require('express');
 const router = express.Router();
+
+const {
+  listUsers,
+  updateUserRole,
+  toggleBlockUser
+} = require('../controllers/adminController');
+
+const { authorizeRoles } = require('../middleware/roleMiddleware'); // ✅ right import
+const authMiddleware = require('../middleware/authMiddleware');
+
 router.use(authMiddleware, authorizeRoles('admin'));
 
 router.get('/users', listUsers);
 router.post('/users/role', updateUserRole);
 router.post('/users/block', toggleBlockUser);
 
-export default router;
+module.exports = router;

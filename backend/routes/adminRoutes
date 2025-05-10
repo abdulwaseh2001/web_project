@@ -1,0 +1,21 @@
+const express = require("express");
+const User = require("../models/User");
+const auth = require("../middleware/authMiddleware");
+const role = require("../middleware/roleMiddleware");
+
+const router = express.Router();
+router.get("/",auth,role("admin"),async(req,res)=>
+{
+    const users = await User.find()
+    res.json(users)
+
+
+})
+router.put("/users/:id/role",auth,role("admin"),async(req,res)=>
+{
+    const {role} = req.body
+    await User.findByIdAndUpdate(req.params.id,{role})
+    res.json({msg:"role updated"})
+
+})
+module.exports = router

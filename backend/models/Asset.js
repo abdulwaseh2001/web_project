@@ -3,7 +3,7 @@ const assetSchema = new mongoose.Schema({
     title:String,
     description:String,
     price:Number,
-    owner:{type:mongoose.Schema.Types.Objectid,ref:"User"},
+    owner:{type:mongoose.Schema.Types.ObjectId,ref:"User"},
     createdAt: {type:Date,default: Date.now},
 
 
