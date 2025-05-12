@@ -1,18 +1,14 @@
-// frontend/src/api/api.js
-import axios from 'axios';
+import axios from "axios";
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: "/api",
+  withCredentials: true,
 });
 
-// before each request, attach the token if we have one
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token');
-  if (token) {
-    // send it as Bearer <token>
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-});
+// read any existing token on startup
+const token = localStorage.getItem("token");
+if (token) {
+  api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+}
 
 export default api;

@@ -1,28 +1,75 @@
-.marketplace-container {
-    padding: 24px;
-  }
-  
-  .marketplace-filters {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-  }
-  
-  .marketplace-filters input,
-  .marketplace-filters select {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .asset-card {
-    padding: 12px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    border-radius: 6px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
+.marketplace-controls {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-4);
+}
+.marketplace-filters {
+  display: flex;
+  gap: var(--space-3);
+}
+.marketplace-filters input,
+.marketplace-filters select {
+  padding: var(--space-2);
+  border: 1px solid var(--color-muted);
+  border-radius: var(--radius);
+  transition: border-color var(--transition);
+}
+.marketplace-filters input:focus,
+.marketplace-filters select:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+.marketplace-sort {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.asset-card {
+  background-color: var(--color-surface);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.asset-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.asset-thumb {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+.asset-details {
+  flex: 1;
+}
+.asset-desc {
+  color: var(--color-muted);
+  margin: var(--space-1) 0;
+}
+
+.pagination {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+.pagination button {
+  padding: var(--space-1) var(--space-2);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-muted);
+  border-radius: var(--radius);
+  transition: background-color var(--transition), color var(--transition);
+}
+.pagination button:hover,
+.pagination button.active {
+  background-color: var(--color-primary);
+  color: #fff;
+}

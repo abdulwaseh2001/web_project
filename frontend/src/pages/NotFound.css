@@ -1,8 +1,25 @@
 .notfound-container {
-    padding: 24px;
-    font-size: 20px;
-    font-weight: bold;
-    color: red;
-    text-align: center;
-  }
-  
+  padding: var(--space-5);
+  text-align: center;
+}
+.notfound-container h2 {
+  font-size: 2rem;
+  margin-bottom: var(--space-4);
+  color: var(--color-danger);
+}
+.notfound-container p {
+  color: var(--color-muted);
+  margin-bottom: var(--space-4);
+}
+.notfound-button {
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: background-color var(--transition);
+}
+.notfound-button:hover {
+  background-color: var(--color-accent);
+}

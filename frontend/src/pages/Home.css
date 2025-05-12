@@ -1,7 +1,13 @@
+/* Home.css */
 .home-container {
-    padding: 24px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-  }
-  
+  padding: var(--space-5) 0;
+  text-align: center;
+}
+.home-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-4);
+}
+.home-container p {
+  font-size: 1.125rem;
+  color: var(--color-muted);
+}

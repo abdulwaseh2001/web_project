@@ -1,26 +1,21 @@
-const jwt = require("jsonwebtoken")
+// backend/middleware/authMiddleware.js
+const jwt = require("jsonwebtoken");
 
-module.exports = (req,res,next)=>
-{
-    const token = req.headers.autorization?.split("")[1];
-    if(!token) return res.status(401).json({msg: "unauthorized"});
+module.exports = (req, res, next) => {
+  // grab the header correctly
+  const authHeader = req.headers.authorization || req.headers.Authorization;
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    return res.status(401).json({ msg: "unauthorized" });
+  }
 
-    try{
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = decoded;
-        next()
-    }
-    catch(err)
-    {
-        res.status(401).json({msg : "invalid token"})
+  // split on the space, not on an empty string
+  const token = authHeader.split(" ")[1];
 
-
-    }
-
-
-
-
-
-    }
-
-
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded;
+    next();
+  } catch (err) {
+    return res.status(401).json({ msg: "invalid token" });
+  }
+};

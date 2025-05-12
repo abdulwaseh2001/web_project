@@ -8,7 +8,7 @@ const connectDB = require("./config");
 const errorHandler = require("./middleware/errorHandler");
 const rateLimiter = require("./middleware/rateLimiter");
 
-const adminRoutes = require("./routes/admin"); // ✅ use require, not import
+const adminRoutes = require("./routes/admin");
 
 require("dotenv").config();
 

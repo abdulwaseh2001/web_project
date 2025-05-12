@@ -1,32 +1,60 @@
-.profile-container {
-    padding: 24px;
-    max-width: 500px;
-    margin: auto;
-  }
-  
-  .profile-heading {
-    font-size: 22px;
-    margin-bottom: 16px;
-  }
-  
-  .profile-field {
-    margin-bottom: 16px;
-  }
-  
-  .profile-input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 4px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .profile-button {
-    background-color: #2563eb;
-    color: white;
-    padding: 10px 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
+.profile-avatar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--color-muted);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #fff;
+}
+.small-btn {
+  padding: var(--space-1) var(--space-2);
+  font-size: 0.85rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-muted);
+  border-radius: var(--radius);
+  transition: background-color var(--transition);
+}
+.small-btn:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+.profile-heading {
+  margin-bottom: var(--space-4);
+  font-size: 1.75rem;
+}
+.profile-field {
+  margin-bottom: var(--space-4);
+}
+.profile-input {
+  width: 100%;
+  padding: var(--space-2);
+  border: 1px solid var(--color-muted);
+  border-radius: var(--radius);
+  transition: border-color var(--transition);
+}
+.profile-input:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+.profile-button {
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: background-color var(--transition);
+}
+.profile-button:hover {
+  background-color: var(--color-accent);
+}

@@ -1,5 +1,86 @@
 [
-    { "id": 1, "name": "8-bit Hero Sprite", "type": "sprite", "price": "Free" },
-    { "id": 2, "name": "Forest Background", "type": "background", "price": "$3" }
-  ]
-  
+  {
+    "id": 1,
+    "name": "8-bit Hero Sprite",
+    "type": "sprite",
+    "price": "Free",
+    "thumbnailUrl": "/images/8bit-hero.png"
+  },
+  {
+    "id": 2,
+    "name": "Forest Background",
+    "type": "background",
+    "price": "$3",
+    "thumbnailUrl": "/images/forest-background.png"
+  },
+  {
+    "id": 3,
+    "name": "Medieval Knight Sprite",
+    "type": "sprite",
+    "price": "$2",
+    "thumbnailUrl": "/images/medieval-knight.png"
+  },
+  {
+    "id": 4,
+    "name": "Mystic Cave Background",
+    "type": "background",
+    "price": "$4",
+    "thumbnailUrl": "/images/mystic-cave.png"
+  },
+  {
+    "id": 5,
+    "name": "Space Explorer Sprite",
+    "type": "sprite",
+    "price": "$1.50",
+    "thumbnailUrl": "/images/space-explorer.png"
+  },
+  {
+    "id": 6,
+    "name": "Sunset Over Ocean",
+    "type": "background",
+    "price": "$5",
+    "thumbnailUrl": "/images/sunset-ocean.png"
+  },
+  {
+    "id": 7,
+    "name": "Animated Fireball Sprite",
+    "type": "sprite",
+    "price": "$2.50",
+    "thumbnailUrl": "/images/animated-fireball.png"
+  },
+  {
+    "id": 8,
+    "name": "Medieval Village Background",
+    "type": "background",
+    "price": "$3.75",
+    "thumbnailUrl": "/images/medieval-village.png"
+  },
+  {
+    "id": 9,
+    "name": "Retro Pixel Explosion",
+    "type": "sprite",
+    "price": "Free",
+    "thumbnailUrl": "/images/retro-explosion.png"
+  },
+  {
+    "id": 10,
+    "name": "Underwater Coral Reef",
+    "type": "background",
+    "price": "$4.25",
+    "thumbnailUrl": "/images/coral-reef.png"
+  },
+  {
+    "id": 11,
+    "name": "Steampunk Airship Sprite",
+    "type": "sprite",
+    "price": "$3",
+    "thumbnailUrl": "/images/steampunk-airship.png"
+  },
+  {
+    "id": 12,
+    "name": "Haunted Forest Background",
+    "type": "background",
+    "price": "$5.50",
+    "thumbnailUrl": "/images/haunted-forest.png"
+  }
+]
