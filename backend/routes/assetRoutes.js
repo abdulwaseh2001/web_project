@@ -17,7 +17,7 @@ router.post("/",auth,async(req,res)=>
     res.status(201).json(asset)
 
 })
-router.put("/:id".auth,async(req,res)=>
+router.put("/:id",auth,async(req,res)=>
 {
     const asset = await Asset.findByIdAndUpdate(req.params.id,req.body,{new:true})
     res.json(asset)
@@ -30,3 +30,5 @@ router.delete("/:id",auth,async(req,res)=>
     res.json({msg:"deleted"})
 
 })
+
+module.exports = router;

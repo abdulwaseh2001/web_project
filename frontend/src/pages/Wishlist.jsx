@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import './Wishlist.css';
+// frontend/src/pages/Wishlist.jsx
+import React, { useEffect, useState } from "react";
+import api from "../api/api";
+import "./Wishlist.css";
 
 export default function Wishlist() {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    const favs = JSON.parse(localStorage.getItem('wishlist')) || [];
-    setFavorites(favs);
+    api.get("/users/wishlist")
+      .then((res) => setFavorites(res.data))
+      .catch((err) => {
+        console.error("Could not load wishlist:", err.response?.data || err.message);
+        alert("You must be logged in to see your wishlist");
+      });
   }, []);
 
   return (
@@ -16,8 +22,8 @@ export default function Wishlist() {
         <p>No favorites yet.</p>
       ) : (
         <ul>
-          {favorites.map(item => (
-            <li key={item.id} className="wishlist-item">
+          {favorites.map((item) => (
+            <li key={item._id} className="wishlist-item">
               <strong>{item.name}</strong> — {item.type} — {item.price}
             </li>
           ))}

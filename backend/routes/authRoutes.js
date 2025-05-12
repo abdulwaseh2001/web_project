@@ -1,20 +1,34 @@
-const express = require('express');
+// backend/routes/authRoutes.js
+const express  = require('express');
+const bcrypt   = require('bcrypt');
+const jwt      = require('jsonwebtoken');
+const User     = require('../models/User');
+const logger   = require('../utils/logger');
+
 const router = express.Router();
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
-const logger = require('../utils/logger');
 
 // POST /api/auth/register
 router.post('/register', async (req, res) => {
   const { name, email, password } = req.body;
-  const hash = await bcrypt.hash(password, 10);
   try {
+    // hash password
+    const hash = await bcrypt.hash(password, 10);
+    // create user
     const user = await User.create({ name, email, password: hash });
     await logger("User Registered", user.email);
-    res.status(201).json({ msg: "Registered" });
+
+    // sign JWT (same payload & secret)
+    const token = jwt.sign(
+      { id: user._id, role: user.role },
+      process.env.JWT_SECRET,
+      { expiresIn: '1h' }
+    );
+
+    // return it
+    res.status(201).json({ token });
   } catch (err) {
-    res.status(400).json({ msg: "Registration failed" });
+    console.error(err);
+    res.status(400).json({ msg: 'Registration failed' });
   }
 });
 
@@ -23,9 +37,15 @@ router.post('/login', async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
   const match = user && await bcrypt.compare(password, user.password);
-  if (!match) return res.status(401).json({ msg: "Invalid credentials" });
+  if (!match) {
+    return res.status(401).json({ msg: 'Invalid credentials' });
+  }
 
-  const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: "1h" });
+  const token = jwt.sign(
+    { id: user._id, role: user.role },
+    process.env.JWT_SECRET,
+    { expiresIn: '1h' }
+  );
   await logger("User Login", email);
   res.json({ token });
 });

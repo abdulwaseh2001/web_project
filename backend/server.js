@@ -13,6 +13,7 @@ const adminRoutes = require("./routes/admin"); // ✅ use require, not import
 require("dotenv").config();
 
 const app = express();
+app.set('trust proxy', 1);
 connectDB();
 
 // Middleware
@@ -27,11 +28,17 @@ app.use(rateLimiter);
 app.use("/api/admin", adminRoutes); 
 app.use('/api/auth', require('./routes/authRoutes'));
 
-// ✅ admin routes
 //app.use("/api/test", require("./routes/test")); // example test route
+
+app.use('/api/assets', require('./routes/assetRoutes'));
+
+const userRoutes = require('./routes/userRoutes');
+console.log('userRoutes is:', typeof userRoutes, userRoutes);
+app.use('/api/users', userRoutes);
 
 // Error handler (should be last middleware)
 app.use(errorHandler);
+console.log('errorHandler is:', typeof errorHandler, errorHandler);
 
 // Start server
 const PORT = process.env.PORT || 5000;

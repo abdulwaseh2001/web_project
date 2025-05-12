@@ -1,11 +1,26 @@
-const mongoose = require('mongoose')
+// backend/models/Asset.js
+const mongoose = require("mongoose");
+
 const assetSchema = new mongoose.Schema({
-    title:String,
-    description:String,
-    price:Number,
-    owner:{type:mongoose.Schema.Types.ObjectId,ref:"User"},
-    createdAt: {type:Date,default: Date.now},
-
-
+  id: {
+    type: Number,
+    required: true,
+    unique: true
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  type: String,
+  price: String,
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
 });
-module.exports = mongoose.model("Asset",assetSchema);
+
+module.exports = mongoose.model("Asset", assetSchema);
